@@ -1,18 +1,20 @@
-import { Home } from "./pages/Home";
-import { About } from "./pages/About";
-import { Contact } from "./pages/Contact";
-import { NotFound } from "./pages/NotFound";
-import { Routes, Route } from "react-router-dom";
+import { AppRouter } from "./components/router/AppRouter";
+import { NavBarBox } from "./components/navbar/NavBarBox";
+import { SidebarContextProvider } from "./context/ui_context/Sidebar.context";
+import { AdminDashboardContextProvider } from "./context/AdminDashboard.context";
+import { ProductsAPIContextProvider } from "./context/Products.API.context";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <NavBarBox />
+      <ProductsAPIContextProvider>
+        <AdminDashboardContextProvider>
+          <SidebarContextProvider>
+            <AppRouter />
+          </SidebarContextProvider>
+        </AdminDashboardContextProvider>
+      </ProductsAPIContextProvider>
     </>
   );
 }
