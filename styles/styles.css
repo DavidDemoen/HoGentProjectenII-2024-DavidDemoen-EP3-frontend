@@ -1,115 +1,156 @@
 :root {
-    --clr-primary-body: hsl(0, 5%, 22%);
-    --clr-primary-text: hsl(0, 0%, 100%);
-    --clr-navbar-border: hsl(333, 77%, 55%);
-    --clr-navbar-secondary: hsl(111, 87%, 53%);
-    --clr-contentreel-pink: hsl(333, 71%, 66%);
-  
-    --font-family-primary: "SuisseBP", sans-serif;
-    --font-family-secondary: "Helvetica Neue", sans-serif;
-  
-    --header-border-bottom: 0.15em solid var(--clr-primary-text);
-  }
-  /* Box sizing rules */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  /* Prevent font size inflation */
-  html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-  }
-  
-  /* Remove default margin in favour of better control in authored CSS */
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  figure,
-  blockquote,
-  dl,
-  dd {
-    margin-block-end: 0;
-  }
-  p {
-    margin: 0;
-  }
-  
-  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-  ul[role="list"],
-  ol[role="list"] {
-    list-style: none;
-  }
-  
-  /* Set core body defaults */
-  body {
-    min-height: 100vh;
-    line-height: 1.5;
-  }
-  
-  /* Set shorter line heights on headings and interactive elements */
-  h1,
-  h2,
-  h3,
-  h4,
-  button,
-  input,
-  label {
-    line-height: 1.1;
-  }
-  
-  /* Balance text wrapping on headings */
-  h1,
-  h2,
-  h3,
-  h4 {
-    text-wrap: balance;
-  }
-  
-  /* A elements that don't have a class get default styles */
-  a:not([class]) {
-    text-decoration-skip-ink: auto;
-    color: currentColor;
-  }
-  
-  /* Make images easier to work with */
-  img,
-  picture {
-    max-width: 100%;
-    display: block;
-  }
-  
-  /* Inherit fonts for inputs and buttons */
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-  
-  /* Make sure textareas without a rows attribute are not tiny */
-  textarea:not([rows]) {
-    min-height: 10em;
-  }
-  
-  /* Anything that has been anchored to should have extra scroll margin */
-  :target {
-    scroll-margin-block: 5ex;
-  }
-  
-  /*General styles*/
-  body {
-    background-color: var(--clr-primary-body);
-    color: var(--clr-primary-text);
-    font-family: var(--font-family-primary);
-    font-weight: lighter;
-    border: none;
-    margin: 0;
-  }
-  
+  /* General colors */
+  --clr-primary-body: hsl(266, 64%, 98%);
+
+  /* General fonts */
+  --font-family-primary: "SuisseBP", sans-serif;
+  --font-family-secondary: "Helvetica Neue", sans-serif;
+
+  /* Text */
+  --clr-text-primary: hsl(0, 5%, 22%);
+  --clr-text-secondary: hsl(0, 22%, 96%);
+
+  /* Card */
+  --clr-card-primary: white;
+  --clr-card-secondary: hsl(0, 14%, 91%);
+  --clr-card-border: var(--clr-card-secondary);
+  --clr-card-card-text-primary: hsl(0, 1%, 50%);
+  --clr-card-card-text-secondary: hsl(240, 44%, 51%);
+  --clr-card-card-text-tertiary: hsl(0, 2%, 75%);
+
+  /* Button */
+  --header-border-bottom: 0.15em solid var(--clr-text-primary);
+
+  /* NavBar*/
+  --clr-navbar-secondary: hsl(111, 87%, 53%);
+  --clr-contentreel-pink: hsl(333, 71%, 66%);
+  --clr-navbar-border: hsl(333, 77%, 55%);
+
+  /* Sidebar */
+  --clr-sidebar-primary: hsl(0, 5%, 59%);
+  --clr-sidebar-secondary: hsl(0, 14%, 91%);
+  --clr-sidebar-border: var(--clr-sidebar-secondary);
+  --clr-sidebar-text-primary: var(--clr-text-secondary);
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+p {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/*General styles*/
+body {
+  background-color: var(--clr-primary-body);
+  color: var(--clr-primary-text);
+  font-family: var(--font-family-primary);
+  font-weight: lighter;
+  border: none;
+  margin: 0;
+}
+
+/*Boxes*/
+.box {
+  padding: 2rem;
+}
+.flex-box {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.box-with-sidebar {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+}
