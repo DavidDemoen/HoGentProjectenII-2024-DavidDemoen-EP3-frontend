@@ -1,0 +1,106 @@
+.navbar-box {
+  display: flex;
+  background-color: white;
+  height: 6.5rem;
+  align-items: end;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.navbar-links-box {
+  display: flex;
+  align-items: end;
+  margin-left: 1rem;
+}
+.navbar-links-box a {
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.navbar-links-box a:hover {
+  background-color: lightpink;
+  color: white;
+}
+
+.navbar-dyn-box {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  padding-right: 0.5rem;
+}
+.navbar-dyn-contact {
+  display: flex;
+}
+.navbar-dyn-mains {
+  display: flex;
+  padding: 0 1rem 0.5rem 0;
+  gap: 0.3rem;
+}
+.navbar-dyn-mains div {
+  font-size: 1.7rem;
+}
+.navbar-dyn-mains div:hover {
+  color: lightcoral;
+  cursor: pointer;
+}
+
+.navbar-notification-badge {
+  position: absolute;
+  top: 3.2rem;
+  right: 1rem;
+  background-color: white;
+  border: solid 2px lightcoral;
+  color: lightcoral;
+  padding: 0.05rem 0.3rem;
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+.disabled-icon {
+  pointer-events: none;
+  color: lightpink;
+}
+/*Checkout Navbar*/
+.checkout-navbar-box {
+  background-color: lightpink;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkout-navbar-cart-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+.checkout-navbar-cart-link:hover, .hover:hover {
+  cursor: pointer;
+  color: lightcoral;
+}
+.checkout-navbar-box p {
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.checkout-navbar-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  align-items: flex-end;
+}
+.checkout-navbar-questions .no-underline {
+  text-decoration: none;
+}
+.navbar-dyn-contact{
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem
+}
+.navbar-dyn-contact p{
+font-size: .8rem;
+}

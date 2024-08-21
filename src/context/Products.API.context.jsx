@@ -8,7 +8,15 @@ import {
 } from "react";
 import useSWR, { mutate } from "swr";
 import useSWRMutation from "swr/mutation";
-import { getAll, getById, updateById, deleteById, create } from "../api/index";
+import {
+  getAll,
+  getAllFiltered,
+  getById,
+  updateById,
+  deleteById,
+  create,
+} from "../api/index";
+import { useFilterContext } from "./ui_context/Filter.context";
 
 const ProductsAPIContext = createContext();
 const supplierAccount = import.meta.env.VITE_DEV_MAIN_SUPPLIER_ACCOUNT;
@@ -21,6 +29,18 @@ export function useProductsAPIContext() {
 export function ProductsAPIContextProvider({ children }) {
   // STATE
   const [selectedProductId, setSelectedProductId] = useState(null);
+
+  // FILTERS
+  const { filterCategories, filterManufacturers, filterAvailability } =
+    useFilterContext();
+  const getFiltersObject = () => {
+    return {
+      categories: filterCategories,
+      manufacturers: filterManufacturers,
+      availability: filterAvailability,
+    };
+  };
+
   // API calls Products
   const {
     data: productsDATA = { products: [] },
@@ -28,7 +48,15 @@ export function ProductsAPIContextProvider({ children }) {
     isLoading: productsIsLoading,
   } = useSWR({ url: `companies/${mainCompany}/products` }, getAll);
   const {
-    data: selectedProductDATA = { product: {} },
+    data: filteredProductsDATA,
+    error: filteredProductsError,
+    isLoading: filteredProductsIsLoading,
+  } = useSWR(
+    [`companies/${mainCompany}/products/filtered`, getFiltersObject()],
+    (url, filters) => getAllFiltered(url, filters)
+  );
+  const {
+    data: selectedProductDATA = { product: { Manufacturer: { name: null } } },
     error: selectedProductError,
     isLoading: selectedProductIsLoading,
   } = useSWR(
@@ -77,17 +105,20 @@ export function ProductsAPIContextProvider({ children }) {
     },
     [deleteProduct, mutate]
   );
-  const handleCreateProduct = useCallback(async (data) => {
-    data.companyId = mainCompany;
-    console.log(`Create product: ${JSON.stringify(data)}`);
-    await createProduct(data);
-    mutate({
-      url: `companies/${mainCompany}/products`,
-    });
-    mutate({
-      url: `products/${selectedProductId}`,
-    });
-  }, [createProduct, mutate]);
+  const handleCreateProduct = useCallback(
+    async (data) => {
+      data.companyId = mainCompany;
+      console.log(`Create product: ${JSON.stringify(data)}`);
+      await createProduct(data);
+      mutate({
+        url: `companies/${mainCompany}/products`,
+      });
+      mutate({
+        url: `products/${selectedProductId}`,
+      });
+    },
+    [createProduct, mutate]
+  );
 
   // CONSOLE LOGS
   // useEffect(() => {
@@ -112,6 +143,7 @@ export function ProductsAPIContextProvider({ children }) {
       deleteProductError,
       createProductIsLoading,
       createProductError,
+      filteredProductsDATA,
       setSelectedProductId,
       handleUpdateProduct,
       handleDeleteProduct,
@@ -131,6 +163,7 @@ export function ProductsAPIContextProvider({ children }) {
     deleteProductError,
     createProductIsLoading,
     createProductError,
+    filteredProductsDATA,
     setSelectedProductId,
     handleUpdateProduct,
     handleDeleteProduct,

@@ -1,0 +1,137 @@
+.cart-main-box {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.cart-main-title {
+  text-align: center;
+  padding: 2rem 0;
+}
+.cart-main-title p {
+  font-size: 4rem;
+}
+.cart-main-body {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.cart-main-body p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.cart-main-body-content {
+  display: flex;
+  padding-top: 1rem;
+  gap: 2rem;
+}
+/*CART ITEM*/
+.cart-items-box {
+  flex: 2;
+}
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid lightcoral;
+  padding: 3rem 0 2.5rem 0;
+}
+.cart-item-image {
+  width: 10rem;
+  height: 10rem;
+  background-color: thistle;
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.cart-item-name {
+  font-size: 1.5rem;
+  font-weight: 450;
+}
+.cart-item-subdetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.cart-item-delete {
+  cursor: pointer;
+  display: flex;
+}
+.cart-item-admins {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  justify-content: space-between;
+}
+.cart-item-terms {
+  background-color: rgb(242, 240, 240);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.cart-item-terms div {
+  color: rgb(221, 86, 86);
+  font-size: 1.2rem;
+}
+.cart-item-terms p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: grey;
+}
+.cart-item-account {
+  display: flex;
+  flex-direction: column;
+}
+.cart-item-price {
+  font-size: 1rem;
+  font-weight: 200;
+}
+.cart-item-account-total {
+  font-size: 1.2rem;
+  font-weight: 400;
+  align-self: end;
+  margin-top: auto;
+}
+
+/* CHECKOUT BOX*/
+.cart-checkout-box {
+  flex: 1;
+  background-color: lightpink;
+  padding: 2rem;
+  max-width: 20rem;
+  height: 100%;
+}
+.cart-checkout-account-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.cart-checkout-account-item p {
+  font-size: 1rem;
+  font-weight: 250;
+}
+.cart-checkout-total p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.cart-checkout-button-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.cart-checkout-button-box button {
+  background-color: white;
+  border: 2px solid transparent;
+  color: lightpink;
+  padding: 0.5rem 3rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.cart-checkout-button-box button:hover {
+  background-color: lightpink;
+  color: white;
+  border: 2px solid white;
+}

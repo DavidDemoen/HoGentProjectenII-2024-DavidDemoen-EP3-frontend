@@ -1,0 +1,112 @@
+/*list-table*/
+.list-table-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid lightcoral;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+.list-table-twin-box {
+  display: flex;
+  gap: 1rem;
+}
+.list-table-box-title {
+  color: lightcoral;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.list-table-edit-box {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  color: lightcoral;
+}
+.list-table-edit-box:hover {
+  cursor: pointer;
+  color: lightpink;
+}
+.list-table-edit-box:hover p {
+  color: lightpink;
+}
+.list-table-edit-box p {
+  color: lightcoral;
+  font-weight: 300;
+  font-size: 1rem;
+}
+.list-table-item {
+  display: flex;
+  flex-direction: column;
+}
+.list-table-item-label {
+  font-weight: 350;
+  font-size: 1.1rem;
+  color: lightcoral;
+}
+.list-table-item-text {
+  padding-left: 2rem;
+  font-size: 1rem;
+  font-weight: 350;
+}
+.list-table-item-text-disabled {
+  border: none;
+  background-color: transparent;
+}
+
+/*Table*/
+.table-main-container {
+  border: 2px solid lightcoral;
+  width: 100%;
+  /* table-layout: fixed; */
+  margin: 0;
+}
+.table-header {
+  color: white;
+  background-color: lightcoral;
+}
+.table-row {
+  text-align: center;
+  font-weight: 300;
+}
+.table-row:nth-child(even) {
+  background-color: rgb(254, 237, 239);
+}
+.table-button {
+  background-color: lightCoral;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  border: 2px solid lightcoral;
+}
+.table-button:hover {
+  background-color: white;
+  color: lightcoral;
+}
+.table-button:disabled {
+  background-color: rgb(246, 223, 223);
+  color: white;
+  cursor: not-allowed;
+  border: 2px solid rgb(246, 223, 223);
+}
+
+.radio-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem;
+}
+.list-table-item-error {
+  color: coral;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+.table-button-box {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  margin-top: 2rem;
+}

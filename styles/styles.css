@@ -3,7 +3,7 @@
   --clr-primary-body: hsl(266, 64%, 98%);
 
   /* General fonts */
-  --font-family-primary: "SuisseBP", sans-serif;
+  --font-family-primary: "Jost";
   --font-family-secondary: "Helvetica Neue", sans-serif;
 
   /* Text */
@@ -73,6 +73,7 @@ ol[role="list"] {
 body {
   min-height: 100vh;
   line-height: 1.5;
+  width: 100%;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -127,17 +128,29 @@ textarea:not([rows]) {
 
 /*General styles*/
 body {
-  background-color: var(--clr-primary-body);
+  background-color: white;
   color: var(--clr-primary-text);
   font-family: var(--font-family-primary);
   font-weight: lighter;
   border: none;
   margin: 0;
 }
+h1 {
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+p {
+  font-family: var(--font-family-primary);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5rem;
+}
 
 /*Boxes*/
 .box {
-  padding: 2rem;
+  padding: 2rem 0rem;
 }
 .flex-box {
   display: flex;
@@ -152,5 +165,8 @@ body {
   gap: 1rem;
 }
 
-.button {
+.app-main-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

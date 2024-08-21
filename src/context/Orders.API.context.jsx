@@ -26,7 +26,7 @@ export function OrdersAPIContextProvider({ children }) {
     data: ordersMainAccountDATA = { orders: [] },
     error: ordersMainAccountError,
     isLoading: ordersMainAccountIsLoading,
-  } = useSWR({ url: `orders/account/${supplierAccount}` }, getAll);
+  } = useSWR({ url: `orders/company/${mainCompany}` }, getAll);
 
   const value = useMemo(() => {
     return {

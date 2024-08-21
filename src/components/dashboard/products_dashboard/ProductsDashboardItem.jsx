@@ -1,26 +1,67 @@
-import { useNavigate } from "react-router";
-import { useProductsAPIContext } from "../../../context/Products.API.context";
+import { useAdminDashboardContext } from "../../../context/AdminDashboard.context";
+import useSWR from "swr";
+import { getById } from "../../../api";
+import AsyncData from "../../AsyncData";
 
-export function ProductsDashboardItem({ id, name }) {
-  const { setSelectedProductId, handleDeleteProduct } = useProductsAPIContext();
+export function ProductsDashboardItem({
+  id,
+  referenceId,
+  name,
+  currentUnitPrice,
+  currentProductDiscount,
+  productCategoryId,
+  manufacturerId,
+  companyId,
+}) {
+  const { setProductDetailId } = useAdminDashboardContext();
 
-  const navigate = useNavigate();
+  const {
+    data: productCategoryDATA = { category: [] },
+    error: productCategoriesError,
+    isLoading: productCategoriesIsLoading,
+  } = useSWR({ url: `productCategories/${productCategoryId}` }, getById);
+  const { category } = productCategoryDATA;
 
-  const handleEditClick = () => {
-    //setSelectedProductId(id);
-    navigate(`/dashboard/products/edit/${id}`);
-  };
-  const handleDeleteClick = () => {
-    handleDeleteProduct(id);
+  const {
+    data: manufacturerDATA = { manufacturer: [] },
+    error: manufacturerError,
+    isLoading: manufacturerIsLoading,
+  } = useSWR({ url: `manufacturers/${manufacturerId}` }, getById);
+  const { manufacturer } = manufacturerDATA;
+
+  const {
+    data: stockDATA = { stock: [] },
+    error: stockError,
+    isLoading: stockIsLoading,
+  } = useSWR({ url: `companies/${companyId}/products/${id}/stock` }, getById);
+  const { stock } = stockDATA;
+
+  const handleClickDetails = () => {
+    setProductDetailId(id);
   };
 
   return (
     <>
-      <div className="products-list-item">
-        <p>{name}</p>
-        <button onClick={handleEditClick}>Edit</button>
-        <button onClick={handleDeleteClick}>Delete</button>
-      </div>
+      <AsyncData
+        loading={productCategoriesIsLoading}
+        error={productCategoriesError}
+        type="Product data"
+      >
+        <tr className="table-row">
+          <td>{referenceId}</td>
+          <td>{name}</td>
+          <td>{manufacturer.name}</td>
+          <td>{category.name}</td>
+          <td>{stock}</td>
+          <td>€ {currentUnitPrice}</td>
+          <td>{currentProductDiscount}</td>
+          <td>
+            <button className="table-button" onClick={handleClickDetails}>
+              Details and edit
+            </button>
+          </td>
+        </tr>
+      </AsyncData>
     </>
   );
 }

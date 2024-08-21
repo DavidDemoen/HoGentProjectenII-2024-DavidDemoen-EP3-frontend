@@ -1,0 +1,81 @@
+.footer-main-box {
+  background-color: lightcoral;
+  width: 100%;
+  min-height: 100px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding: 3rem 0.5rem;
+}
+/*footer body*/
+.footer-item-box {
+  padding: 0 1rem;
+}
+.footer-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+/*Footer item Box*/
+.footer-item-title-box {
+  border-bottom: 2px solid white;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.footer-item-title-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+}
+.footer-item-link-box {
+  text-align: center;
+  color: white;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid lightpink;
+}
+.footer-item-link-box:hover {
+  background-color: lightpink;
+  cursor: pointer;
+  color: lightcoral;
+}
+.footer-item-link-text {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/*Footer info Box*/
+.footer-info-box {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.footer-info-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+.footer-info-links-item:hover{
+    color: lightpink;
+    cursor: pointer;
+}
+.footer-juridicial{
+    text-align: center;
+}
+.footer-juridicial-copyright {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.footer-juridicial-coockies{
+    font-size: 1rem;
+    font-weight: 300;
+}
+.footer-juridicial-coockies:hover{
+    color: lightpink;
+    cursor: pointer;
+}

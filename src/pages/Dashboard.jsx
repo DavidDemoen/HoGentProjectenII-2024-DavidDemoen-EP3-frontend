@@ -1,30 +1,36 @@
-import { DashboardBox } from "../components/dashboard/DashboardBox";
-import { SidebarGeneral } from "../components/ui_element/sidebar/SidebarGeneral";
-import { useSidebarContext } from "../context/ui_context/Sidebar.context";
-import { useAdminDashboardContext } from "../context/AdminDashboard.context";
-import { useNavigate } from "react-router";
+import { useEffect } from "react";
+import { useAccountsContext } from "../context/Accounts.context";
+import { GeneralDashboard } from "../components/dashboard/GeneralDashboard";
+import "../../styles/dashboard_styles.css";
 
 export function Dashboard({ type }) {
-  const { adminSidebarContent } = useSidebarContext();
-  const { setDashboard, setCategoriesMainBox } = useAdminDashboardContext();
-  //console.log(setDashboard);
-  //console.log(adminSidebarContent);
+  const { loggedInAccount } = useAccountsContext();
 
-  const navigate = useNavigate();
+  const accountTypeName = loggedInAccount?.accountTypeName || null;
 
-  const handleOnClick = (type, url) => {
-    navigate(`/dashboard/${url}`);
-    setDashboard(type);
-    setCategoriesMainBox("add");
+  const renderDashboard = () => {
+    if (accountTypeName == "ADMIN") {
+      return (
+        <GeneralDashboard defaultType="Sales Metrics" accountType="ADMIN" />
+      );
+    }
+    if (accountTypeName == "PURCHASER") {
+      return (
+        <GeneralDashboard
+          defaultType="Company Metrics"
+          accountType="PURCHASER"
+        />
+      );
+    }
+    return <h1>NOT LOGGED IN WITH RIGHT ACCOUNT</h1>;
   };
+  useEffect(() => {
+    renderDashboard();
+  }, [accountTypeName]);
 
   return (
     <>
-      <div className="box box-with-sidebar">
-        <SidebarGeneral content={adminSidebarContent} onClick={handleOnClick} />
-
-        <DashboardBox type={type} />
-      </div>
+      <div>{renderDashboard()}</div>
     </>
   );
 }
