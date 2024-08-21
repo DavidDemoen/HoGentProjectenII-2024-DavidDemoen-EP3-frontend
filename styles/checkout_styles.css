@@ -1,0 +1,311 @@
+.checkout-track-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 3rem;
+}
+.checkout-content-box {
+  display: flex;
+  height: 100%;
+}
+.checkout-form-container {
+  border-right: 3px solid #f2f2f2;
+  flex: 2;
+}
+.checkout-cartoverview-box {
+  flex: 1;
+}
+.checkout-form-title {
+  font-size: 1.5rem;
+  font-weight: 350;
+  margin-bottom: 1rem;
+  color: lightcoral;
+  text-decoration: underline;
+}
+.checkout-form-subtitle {
+  font-size: 1.2rem;
+  font-weight: 350;
+  margin-bottom: 1rem;
+  color: lightcoral;
+}
+.checkout-form-topbox {
+  border-bottom: 3px solid #f2f2f2;
+  padding: 2rem;
+}
+.checkout-form-secondary-box {
+  padding: 2rem;
+}
+.checkout-form-button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.checkout-form-button {
+  padding: 0.5rem 2rem;
+  border: 2px solid lightcoral;
+  background-color: lightcoral;
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.checkout-form-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: lightcoral;
+}
+
+.checkout-warning-container {
+  height: 500px;
+  text-align: center;
+}
+.checkout-warning-container p {
+  margin-top: 5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #d9534f;
+}
+
+/*Progress bar*/
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 2rem;
+}
+.progress-step p {
+  font-weight: 350;
+}
+
+.step-circle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #6c757d; /* Default gray color for inactive steps */
+}
+
+.progress-step.active .step-circle {
+  background-color: #d9534f; /* Red color for the active step */
+}
+
+.progress-line {
+  width: 6rem;
+  height: 2px;
+  background-color: #e0e0e0; /* Light gray color for the line */
+}
+.progress-line.active {
+  background-color: #d9534f; /* Red color for the active line */
+}
+
+.progress-step p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #585252;
+}
+
+.progress-step.active p {
+  color: #d9534f; /* Red color for the active step text */
+}
+/*Personal information*/
+.checkout-personal-info-box {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+/*Summary Box*/
+.checkout-summary-box {
+  margin: 2rem 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.checkout-summary-data {
+  flex: 2;
+  padding: 1rem;
+}
+.checkout-summary-overview {
+  flex: 1;
+}
+.checkout-summary-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: lightpink;
+  height: fit-content;
+  padding: 1rem;
+}
+.checkout-summary-overview p {
+  font-weight: 500;
+  margin: 0;
+}
+.checkout-summary-total {
+  background-color: lightyellow;
+  padding: 1rem;
+}
+.checkout-summary-coupon {
+  background-color: lightyellow;
+  padding: 1rem;
+  text-align: center;
+}
+.checkout-summary-coupon:hover {
+  cursor: pointer;
+  background-color: lightgoldenrodyellow;
+  color: lightcoral;
+}
+
+/*Checkout Cart Items*/
+.checkout-summary-items-header {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.checkout-summary-items-header p {
+  font-weight: 500;
+  margin: 0;
+}
+.checkout-summary-total {
+  display: flex;
+  justify-content: space-between;
+}
+.checkout-cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid white;
+}
+.checkout-cart-img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  margin-right: 1rem;
+  background: lightyellow;
+}
+.checkout-cart-body {
+  margin-left: auto;
+  text-align: right;
+}
+.checkout-cart-body p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/*Address Summary*/
+.checkout-address-summary-body {
+  display: flex;
+  gap: 3rem;
+  padding: 1rem;
+  background-color: rgb(224, 235, 249);
+}
+.checkout-address-icon {
+  align-self: center;
+}
+.checkout-address-summary-body p {
+  font-weight: 350;
+  font-size: 1.2rem;
+}
+.checkout-address-change-link {
+  padding: 1rem;
+  border-bottom: 2px solid white;
+}
+.checkout-address-change-link p {
+  font-weight: 300;
+  font-size: 1rem;
+}
+.checkout-address-change-link p:hover {
+  cursor: pointer;
+  color: #d9534f;
+  text-decoration: underline;
+}
+
+/*Place Order*/
+.checkout-summary-placeorder {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(234, 249, 234);
+  text-align: justify;
+  display: flex;
+  gap: 1rem;
+}
+.checkout-summary-placeorder p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  flex: 1;
+}
+.checkout-summary-tnc {
+  color: lightcoral;
+}
+.checkout-summary-tnc:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: lightpink;
+}
+.checkout-summary-paybutton-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-summary-paybutton {
+  padding: 0.5rem 4rem;
+  border: 2px solid lightcoral;
+  background-color: lightcoral;
+  color: rgb(234, 249, 234);
+  font-weight: 500;
+}
+.checkout-summary-paybutton:hover {
+  cursor: pointer;
+  background-color: rgb(234, 249, 234);
+  color: lightcoral;
+}
+.checkout-supplier-box {
+  padding-left: 2rem;
+}
+.checkout-supplier-box p {
+  font-size: 1.25rem;
+  font-weight: 350;
+}
+/*Payment*/
+.checkout-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-header-title {
+  font-size: 3rem;
+  font-weight: 350;
+  margin: 3rem 0 2rem 0;
+  color: black;
+}
+.checkout-payment-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.checkout-payment-qr {
+  height: 40vh;
+  width: 40vh;
+}
+.checkout-payment-qr:hover {
+  cursor: pointer;
+}
+.checkout-payment-paynow {
+  padding: 1rem 2rem;
+  color: black;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.checkout-payment-qr:hover ~ .checkout-payment-paynow {
+  color: lightcoral;
+}
+.checkout-payment-paylater {
+  padding: 1rem 2rem;
+  color: black;
+}
+.checkout-payment-paylater:hover {
+  cursor: pointer;
+  color: lightcoral;
+  font-weight: normal;
+}

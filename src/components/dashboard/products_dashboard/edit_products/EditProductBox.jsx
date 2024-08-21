@@ -5,10 +5,11 @@ import { EditProductForm } from "./EditProductForm";
 import { useEffect } from "react";
 import { ManufacturersAPIContextProvider } from "../../../../context/Manufacturers.API.context";
 import { ProductCategoriesAPIContextProvider } from "../../../../context/ProductCategories.API.context";
+import { GenericProductForm } from "../GenericProductForm";
 
 export function EditProductBox() {
   const {
-    selectedProductDATA,
+    selectedProductDATA: { product },
     selectedProductError,
     selectedProductIsLoading,
     selectedProductId,
@@ -17,12 +18,12 @@ export function EditProductBox() {
 
   //console.log(selectedProductDATA);
 
-  const { id } = useParams();
-  useEffect(() => {
-    setSelectedProductId(id);
-  }, [id]);
+  // const { id } = useParams();
+  // useEffect(() => {
+  //   setSelectedProductId(id);
+  // }, [id]);
 
-  const { product } = selectedProductDATA;
+  console.log(product, selectedProductError, selectedProductIsLoading);
 
   return (
     <>
@@ -42,7 +43,8 @@ export function EditProductBox() {
             <ManufacturersAPIContextProvider>
               <ProductCategoriesAPIContextProvider>
                 {/* <EditProductForm product={product} /> */}
-                <EditProductForm type={"edit"} product={product} />
+                {/* <EditProductForm type={"edit"} product={product} /> */}
+                <GenericProductForm type={"edit"} product={product} />
               </ProductCategoriesAPIContextProvider>
             </ManufacturersAPIContextProvider>
           </div>

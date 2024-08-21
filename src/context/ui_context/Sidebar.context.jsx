@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import {
   FaHome,
   FaTrash,
@@ -16,6 +16,8 @@ export function useSidebarContext() {
 }
 
 export function SidebarContextProvider({ children }) {
+  const [selectedItem, setSelectedItem] = useState("");
+
   const adminSidebarContent = [
     {
       logo: <FaHome />,
@@ -47,16 +49,42 @@ export function SidebarContextProvider({ children }) {
       title: "Settings",
       url: "settings",
     },
+  ];
+  const purchaserSidebarContent = [
+    {
+      logo: <FaHome />,
+      title: "Company Metrics",
+      url: "company-metrics",
+    },
+    {
+      logo: <FaBars />,
+      title: "Pending Orders",
+      url: "pending-orders",
+    },
     {
       logo: <FaSignOutAlt />,
-      title: "Logout",
+      title: "Purchasers",
+      url: "purchasers",
+    },
+    {
+      logo: <FaCog />,
+      title: "Settings",
+      url: "settings",
     },
   ];
   const value = useMemo(() => {
     return {
       adminSidebarContent,
+      purchaserSidebarContent,
+      selectedItem,
+      setSelectedItem,
     };
-  }, [adminSidebarContent]);
+  }, [
+    adminSidebarContent,
+    purchaserSidebarContent,
+    selectedItem,
+    setSelectedItem,
+  ]);
 
   return (
     <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>

@@ -1,0 +1,28 @@
+.pagination-container {
+  margin: 0 1rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-button {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 350;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem;
+  box-shadow: lightgrey;
+  cursor: pointer;
+  background-color: rgb(248, 227, 230);
+  color: white;
+}
+.pagination-button-active {
+  background-color: lightcoral;
+  font-weight: 500;
+}

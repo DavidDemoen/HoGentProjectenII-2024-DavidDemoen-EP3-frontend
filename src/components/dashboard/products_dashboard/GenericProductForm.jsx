@@ -5,7 +5,6 @@ import { useManufacturersAPIContext } from "../../../context/Manufacturers.API.c
 import { useProductCategoriesAPIContext } from "../../../context/ProductCategories.API.context";
 import { useProductsAPIContext } from "../../../context/Products.API.context";
 import AsyncData from "../../AsyncData";
-import { useEffect, useState } from "react";
 
 const getCounter = () => parseInt(localStorage.getItem("testCounter"), 10) || 1;
 const setCounter = (value) => localStorage.setItem("testCounter", value);

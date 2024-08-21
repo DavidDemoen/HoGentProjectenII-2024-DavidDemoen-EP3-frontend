@@ -11,6 +11,9 @@ import { AddProductBox } from "../components/dashboard/products_dashboard/add_pr
 import { EditProductBox } from "../components/dashboard/products_dashboard/edit_products/EditProductBox";
 import { ProductCategoriesAPIContextProvider } from "./ProductCategories.API.context";
 import { OrdersAPIContextProvider } from "./Orders.API.context";
+import { PendingOrdersBox } from "../components/dashboard/pending_orders_dashboard/PendingOrdersBox";
+import { CompanyDashboardBox } from "../components/dashboard/company_dashboard/CompanyDashboardBox";
+import { PurcharsersDashboardBox } from "../components/dashboard/purchasers_dashboard/PurcharsersDashboardBox";
 
 const AdminDashboardContext = createContext();
 const supplierAccount = import.meta.env.VITE_DEV_MAIN_SUPPLIER_ACCOUNT;
@@ -25,36 +28,37 @@ export function AdminDashboardContextProvider({ children }) {
   const [selectedDashboard, setSelectedDashboard] = useState("");
   const [categoriesMainBox, setCategoriesMainBox] = useState("add");
   const [ordersMainBox, setOrdersMainBox] = useState("table");
+  const [pendingOrderDetailId, setPendingOrderDetailId] = useState(null);
+  const [productDetailId, setProductDetailId] = useState(null);
+  const [categoryDetailId, setCategoryDetailId] = useState(null);
+  const [adminOrderDetailId, setAdminOrderDetailId] = useState(null);
 
   // API calls Orders
   const {
     data: ordersDATA = { orders: [] },
     error: ordersError,
     isLoading: ordersIsLoading,
-  } = useSWR({ url: "orders" }, getAll);
+  } = useSWR({ url: `orders/company/${mainCompany}` }, getAll);
   const {
     data: ordersAccountTodayDATA = { orders: [] },
     error: ordersAccountTodayError,
     isLoading: ordersAccountTodayIsLoading,
-  } = useSWR({ url: `orders/account/${supplierAccount}/today` }, getAll);
+  } = useSWR({ url: `orders/company/${mainCompany}/today` }, getAll);
   const {
     data: ordersAccountWeekDATA = { orders: [] },
     error: ordersAccountWeekError,
     isLoading: ordersAccountWeekIsLoading,
-  } = useSWR({ url: `orders/account/${supplierAccount}/week` }, getAll);
+  } = useSWR({ url: `orders/company/${mainCompany}/week` }, getAll);
   const {
     data: ordersRevenueTodayDATA = { revenue: null },
     error: ordersRevenueTodayError,
     isLoading: ordersRevenueTodayIsLoading,
-  } = useSWR(
-    { url: `orders/account/${supplierAccount}/revenue/today` },
-    getAll
-  );
+  } = useSWR({ url: `orders/company/${mainCompany}/revenue/today` }, getAll);
   const {
     data: ordersRevenueWeekDATA = { revenue: null },
     error: ordersRevenueWeekError,
     isLoading: ordersRevenueWeekIsLoading,
-  } = useSWR({ url: `orders/account/${supplierAccount}/revenue/week` }, getAll);
+  } = useSWR({ url: `orders/company/${mainCompany}/revenue/week` }, getAll);
 
   // API calls Products
   const {
@@ -67,12 +71,14 @@ export function AdminDashboardContextProvider({ children }) {
     setSelectedDashboard(dashboard);
   };
 
+  // API calls Addresses
+
   // CONSOLE LOGS
   // const logSelectedDashboard = useEffect(() => {
   //   console.log(selectedDashboard);
   // }, [selectedDashboard]);
 
-  const renderDashboard = () => {
+  const renderDashboard = (company, companyIsLoading, companyError) => {
     switch (selectedDashboard) {
       case "Sales Metrics":
         return <SalesDashboardBox />;
@@ -98,6 +104,30 @@ export function AdminDashboardContextProvider({ children }) {
         return <AddProductBox />;
       case "Edit Product":
         return <EditProductBox />;
+      case "Pending Orders":
+        return (
+          <PendingOrdersBox
+            company={company}
+            loading={companyIsLoading}
+            error={companyError}
+          />
+        );
+      case "Company Metrics":
+        return (
+          <CompanyDashboardBox
+            company={company}
+            loading={companyIsLoading}
+            error={companyError}
+          />
+        );
+      case "Purchasers":
+        return (
+          <PurcharsersDashboardBox
+            company={company}
+            loading={companyIsLoading}
+            error={companyError}
+          />
+        );
     }
   };
 
@@ -152,11 +182,19 @@ export function AdminDashboardContextProvider({ children }) {
       productsIsLoading,
       categoriesMainBox,
       ordersMainBox,
+      pendingOrderDetailId,
+      productDetailId,
+      categoryDetailId,
+      adminOrderDetailId,
       setDashboard,
       renderDashboard,
       salesCardBodyGenerator,
       setCategoriesMainBox,
       setOrdersMainBox,
+      setPendingOrderDetailId,
+      setProductDetailId,
+      setCategoryDetailId,
+      setAdminOrderDetailId,
     };
   }, [
     ordersDATA,
@@ -177,11 +215,19 @@ export function AdminDashboardContextProvider({ children }) {
     productsIsLoading,
     categoriesMainBox,
     ordersMainBox,
+    pendingOrderDetailId,
+    productDetailId,
+    categoryDetailId,
+    adminOrderDetailId,
     setDashboard,
     renderDashboard,
     salesCardBodyGenerator,
     setCategoriesMainBox,
     setOrdersMainBox,
+    setPendingOrderDetailId,
+    setProductDetailId,
+    setCategoryDetailId,
+    setAdminOrderDetailId,
   ]);
 
   return (

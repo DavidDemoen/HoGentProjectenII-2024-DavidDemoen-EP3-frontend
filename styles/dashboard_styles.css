@@ -1,3 +1,21 @@
+.general-dashboard-box {
+  display: flex;
+  gap: 1rem;
+  background-color: white;
+  min-height: 80vh;
+  width: 100%;
+}
+/*Dashboard-header*/
+.dashboard-header-container {
+  height: 500px;
+  width: 100%;
+}
+.dashboard-header-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
 .sales-cards-box {
   display: flex;
   justify-content: space-between;
@@ -6,12 +24,52 @@
 }
 
 .products-list-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 .products-list-item {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
+}
+
+/*Pending orders*/
+.pendingorders-main-container,
+.purchasers-main-container,
+.dashboard-main-container {
+  width: 100%;
+  padding: 0 2rem 0 1rem;
+  margin: 2rem 0;
+}
+.pendingorders-list-title,
+.purchasers-list-title,
+.dashboard-main-title {
+  color: lightcoral;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.pendingorders-header,
+.dashboard-main-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.pendingorders-header > p,
+.dashboard-main-header > p {
+  color: lightcoral;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.pendingorders-header > p:hover,
+.dashboard-main-header > p:hover {
+  color: lightpink;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.pendingorders-filter-container{
+display: flex;
+justify-content: space-between;
 }

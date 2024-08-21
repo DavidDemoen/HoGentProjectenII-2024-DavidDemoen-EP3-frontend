@@ -1,7 +1,6 @@
+import { HomepageBox } from "../components/homepage/HomepageBox";
+import "../../styles/homepage_styles.css"
+
 export function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+  return <HomepageBox />;
 }

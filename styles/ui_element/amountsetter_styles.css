@@ -1,0 +1,24 @@
+.setter-box {
+  text-align: center;
+  font-weight: 250;
+}
+.setter-buttons-box {
+  display: flex;
+  padding-top: 0.5rem;
+}
+.setter-buttons-box div {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid lightgray;
+  margin: -0.5px;
+  height: 2rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.setter-button:hover {
+  cursor: pointer;
+  color: lightcoral;
+}
