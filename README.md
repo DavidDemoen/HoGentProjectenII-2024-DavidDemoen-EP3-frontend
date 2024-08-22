@@ -1,8 +1,21 @@
-# React + Vite
+# HoGentProjectenII-2024-DavidDemoen-EP3-frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## General setup
+- install project
+```
+yarn install
+```
+- run project
+```
+yarn dev
+```
+The webserver will be hosted on localhost:5173
+## .env
+Create a .env file with the following content:
+```
+VITE_API_URL = http://localhost:9000/api/
+VITE_DEV_MAIN_COMPANY = 13
+```
+## Accompanying REST API server
+Use the server in association with the app found in this repo:  
+https://github.com/DavidDemoen/HoGentProjectenII-2024-DavidDemoen-EP3-backend.git
